@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as auth_logout
+from django.views.generic import TemplateView
 
 def login(request):
     context = {}
@@ -14,3 +15,7 @@ def home(request):
 def logout(request):
     auth_logout(request)
     return redirect('/')
+
+class HomeView(TemplateView):
+    template_name = "home.html"
+
